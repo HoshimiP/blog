@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/blog/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rcore-os.github.io","root":"/blog/","scheme":"Muse","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}}};
+  </script>
+
+  <meta name="description" content="阶段1:语言学习rust 是一门非常有意思的语言，它吸收了很多现代编程语言的特性，特别是来自函数式编程的许多特性，比如 默认不可变，模式匹配，流 api，以及 trait，可以以一种不同的方式去抽象与编码。rust 的“人体工程学”做的也非常不错，有许多语法糖与内置宏，匿名函数的写法也足够简洁，在学习过程中感觉非常有趣。 在语言学习过程中重点学习了基本的语法以及一些库函数的使用，对语言周边，比如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="24aw rcore labs summary">
+<meta property="og:url" content="http://rcore-os.github.io/blog/2024/11/08/24aw-rcore-phease1and2-suspenss-summary/index.html">
+<meta property="og:site_name" content="rcore-os Blog">
+<meta property="og:description" content="阶段1:语言学习rust 是一门非常有意思的语言，它吸收了很多现代编程语言的特性，特别是来自函数式编程的许多特性，比如 默认不可变，模式匹配，流 api，以及 trait，可以以一种不同的方式去抽象与编码。rust 的“人体工程学”做的也非常不错，有许多语法糖与内置宏，匿名函数的写法也足够简洁，在学习过程中感觉非常有趣。 在语言学习过程中重点学习了基本的语法以及一些库函数的使用，对语言周边，比如">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-08T11:40:28.000Z">
+<meta property="article:modified_time" content="2026-04-28T15:22:23.215Z">
+<meta property="article:author" content="rcore-os Group">
+<meta property="article:tag" content="author:suspen">
+<meta property="article:tag" content="repo:rcore-labs">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://rcore-os.github.io/blog/2024/11/08/24aw-rcore-phease1and2-suspenss-summary/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>24aw rcore labs summary | rcore-os Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">rcore-os Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阶段1-语言学习"><span class="nav-number">1.</span> <span class="nav-text">阶段1:语言学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阶段2：rcore-labs-学习"><span class="nav-number">2.</span> <span class="nav-text">阶段2：rcore labs 学习</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">rcore-os Group</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">757</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">671</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2024/11/08/24aw-rcore-phease1and2-suspenss-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          24aw rcore labs summary
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-11-08 11:40:28" itemprop="dateCreated datePublished" datetime="2024-11-08T11:40:28+00:00">2024-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="阶段1-语言学习"><a href="#阶段1-语言学习" class="headerlink" title="阶段1:语言学习"></a>阶段1:语言学习</h2><p>rust 是一门非常有意思的语言，它吸收了很多现代编程语言的特性，特别是来自函数式编程的许多特性，比如 默认不可变，模式匹配，流 api，以及 trait，可以以一种不同的方式去抽象与编码。<br>rust 的“人体工程学”做的也非常不错，有许多语法糖与内置宏，匿名函数的写法也足够简洁，在学习过程中感觉非常有趣。</p>
+<p>在语言学习过程中重点学习了基本的语法以及一些库函数的使用，对语言周边，比如 clippy 的使用还不够好，build.rs 也不太会写，多线程编程也不够熟练，希望接下来的学习当中能再注意一下重点学一下这些东西。</p>
+<h2 id="阶段2：rcore-labs-学习"><a href="#阶段2：rcore-labs-学习" class="headerlink" title="阶段2：rcore labs 学习"></a>阶段2：rcore labs 学习</h2><p>rcore 今年秋冬的任务是除了进程间通信以及io设备没有做过多要求，其余的每章都有一个编程练习，在我看来，编程练习的难度是适中的，但是依然要求完整的理解整个代码框架，对学习操作系统内核很有帮助。</p>
+<p>前三章作为引子一步一步从裸机程序到一个批处理裸机程序的内核，后面几章的顺序是：虚拟内存（地址空间），进程，文件（持久化存储），再到并发。课程顺序与传统授课顺序不太一样，在我个人看来是一种由易到难的渐进学习过程：因为第八章的线程和并发编程真的感觉好难 debug 😂，在这章上浪费的时间也比较多。</p>
+<p>印象最深刻的是对文件系统的讲解，将文件系统作为一个库抽象出来，内核也只是管理文件系统提供的 Inode 接口，以此来区分在内存中的 inode 和磁盘中的 inode，这样一层从 BlockDevice 到 FileSystem 再到 rcore-kernel 最后被封装为一些系统调用，这样层层抽象的写法看起来真的挺赏心悦目的哈哈，而且对知识的学习与综合起来也方便许多。</p>
+<p>另外还有虚拟内存，内存模型也是内容量非常庞大的一章，需要理解 memory-set, map-aera, pagetable-entry, 以及物理地址和虚拟地址，物理页号和虚拟页号之间的关系，</p>
+<p>抽象之下是和底层处理器的操作，内联汇编，riscv 库，以及 C ffi，rust 都支持的很好。处理 trap 的汇编函数也很有意思，以及一些 riscv csr，学习的同时也去了解了一下 riscv。不过本次学习，对rv要求的不是很多，更多的是以问答作业的形式去提问，不知道后面的阶段会不会有深入的机会。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/author-suspen/" rel="tag"># author:suspen</a>
+              <a href="/blog/tags/repo-rcore-labs/" rel="tag"># repo:rcore-labs</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2024/11/08/2024%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/" rel="prev" title="2024二阶段总结">
+      <i class="fa fa-chevron-left"></i> 2024二阶段总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2024/11/08/2024a-rcore-%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E6%98%8E%E6%89%AC/" rel="next" title="2024a-rcore-二阶段总结-明扬">
+      2024a-rcore-二阶段总结-明扬 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rcore-os Group</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

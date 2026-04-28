@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/blog/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rcore-os.github.io","root":"/blog/","scheme":"Muse","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rcore-os Blog">
+<meta property="og:url" content="http://rcore-os.github.io/blog/index.html">
+<meta property="og:site_name" content="rcore-os Blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="rcore-os Group">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://rcore-os.github.io/blog/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>rcore-os Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">rcore-os Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">rcore-os Group</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">757</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">671</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content index posts-expand">
+          
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/" class="post-title-link" itemprop="url">自动测试系统 与 starry-vdso 完善</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2026-04-27 21:27:01" itemprop="dateCreated datePublished" datetime="2026-04-27T21:27:01+00:00">2026-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/report/" itemprop="url" rel="index"><span itemprop="name">report</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="本次实习工作总结"><a href="#本次实习工作总结" class="headerlink" title="本次实习工作总结"></a>本次实习工作总结</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本次实习围绕 x86 自动化测试体系构建、starry-vdso 完善、以及基于自定义 vDSO 接口的 fast path 设计与实现 三条主线展开。完成了从 PXE 自动化部署验证、CI 集成、多组织资源锁适配，到多架构 vDSO/getcpu 支持、vvar 映射优化、自定义 fast path 加载与调用、eBPF→vDSO 数据通路打通等一系列工作。整体实现了 vDSO 基础设施、以及低延迟 fast path 机制上的重要增强，为后续可插拔调度器、动态 eBPF 策略与用户态零系统调用访问奠定了基础。</p>
+<h2 id="x86-自动化测试支持"><a href="#x86-自动化测试支持" class="headerlink" title="x86 自动化测试支持"></a>x86 自动化测试支持</h2><ol>
+<li><p>验证了 x86 平台使用 pxe 进行自动测试部署的流程，并编写<a href="https://github.com/HoshimiP/internship-log/blob/main/notes/pxe_boot_validation.md" target="_blank" rel="noopener">验证报告</a></p>
+</li>
+<li><p>拆分 pxe 部署脚本，并与已有 <a href="https://github.com/HoshimiP/github-runners/tree/feat/pxe-setup" target="_blank" rel="noopener">github-runners</a> 结合，使其能够在 CI 中自动触发测试</p>
+</li>
+<li><p>验证了部署流程与多组织资源锁 runner-wrapper 的适配，在 ubuntu+qemu 环境成功触发资源锁并执行完整测试<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_1.jpg" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_2.jpg" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_3.jpg" alt="alt text"></p>
+</li>
+<li><p>由于本地环境限制（缺少物理开发板），将已完成部分交付给柏乔森老师负责真实硬件上的验证</p>
+</li>
+</ol>
+<h2 id="starry-vdso-的完善"><a href="#starry-vdso-的完善" class="headerlink" title="starry-vdso 的完善"></a>starry-vdso 的完善</h2><ol>
+<li>将 <a href="https://github.com/HoshimiP/starry-vdso" target="_blank" rel="noopener">starry-vdso</a> 接入 starryOS 验证时间相关函数已经能够走 vdso 路径 具体验证结果见<a href="https://github.com/HoshimiP/internship-log/blob/main/notes/vdso.md" target="_blank" rel="noopener">笔记</a></li>
+<li>修改了 x86 架构 getcpu 的初始化实现 为每个 cpu 分配独立 GDT 空间 解决多核场景下 CPU ID 获取不准确的问题<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86getcpu.png" alt="alt text"></li>
+<li>实现了 loongarch64 架构的 vdso_getcpu<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/loongarchgetcpu.png" alt="alt text"></li>
+</ol>
+<h2 id="基于自定义-vDSO-接口的-fast-path-设计与实现"><a href="#基于自定义-vDSO-接口的-fast-path-设计与实现" class="headerlink" title="基于自定义 vDSO 接口的 fast path 设计与实现"></a>基于自定义 vDSO 接口的 fast path 设计与实现</h2><ol>
+<li><p>使用 <a href="https://crates.io/crates/vdso_helper" target="_blank" rel="noopener">vdso-helper</a> 编译包含自定义 fast path 的 <code>.so</code> 文件，并完成在 StarryOS 中的加载与调用<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_api.png" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_fast_path.png" alt="alt text"></p>
+</li>
+<li><p>优化 starry-vdso 的 vvar 映射逻辑 使用户态可以正常通过 vdso基地址+偏移量 访问自定义 vdso 接口</p>
+</li>
+<li><p>在已有可加载模块 <code>modules/kebpf</code> 中增加 vdso 数据页的更新逻辑。当 eBPF 程序执行时，将结果从 map 写入 vvar，使用户态可以零系统调用读取结果，显著降低延迟<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/fast_path.png" alt="alt text"></p>
+</li>
+<li><p>在 <code>api/src/lib.rs</code> 处增加 vdso 数据页的更新逻辑，在 <code>register_timer_callback</code> 时同步更新 vvar 中的任务快照，确保 fast path 始终读取到最新状态<br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/timer_callback_update.png" alt="alt text"></p>
+</li>
+</ol>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><h3 id="项目工程仓库"><a href="#项目工程仓库" class="headerlink" title="项目工程仓库"></a>项目工程仓库</h3><ul>
+<li>starry-vdso <a href="https://github.com/HoshimiP/starry-vdso" target="_blank" rel="noopener">https://github.com/HoshimiP/starry-vdso</a></li>
+<li>StarryOS/tree/vdso_for_ebpf <a href="https://github.com/HoshimiP/StarryOS/tree/vdso_for_ebpf" target="_blank" rel="noopener">https://github.com/HoshimiP/StarryOS/tree/vdso_for_ebpf</a></li>
+</ul>
+<h3 id="周报和工作总结"><a href="#周报和工作总结" class="headerlink" title="周报和工作总结"></a>周报和工作总结</h3><ul>
+<li>周报 <a href="https://github.com/HoshimiP/internship-log/blob/main/README.md" target="_blank" rel="noopener">README.md</a></li>
+<li>工作总结ppt <a href="https://docs.qq.com/slide/DWktBc2d4WEhkYnFM" target="_blank" rel="noopener">https://docs.qq.com/slide/DWktBc2d4WEhkYnFM</a></li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li>github-runners <a href="https://github.com/arceos-hypervisor/github-runners" target="_blank" rel="noopener">https://github.com/arceos-hypervisor/github-runners</a></li>
+<li>在 x86 物理机验证通过的自动测试文档 <a href="https://github.com/arceos-hypervisor/github-runners/blob/x86/docs/PXE%E9%83%A8%E7%BD%B2%E8%AF%B4%E6%98%8E.md" target="_blank" rel="noopener">https://github.com/arceos-hypervisor/github-runners/blob/x86/docs/PXE%E9%83%A8%E7%BD%B2%E8%AF%B4%E6%98%8E.md</a></li>
+<li>vdso-helper <a href="https://crates.io/crates/vdso_helper" target="_blank" rel="noopener">https://crates.io/crates/vdso_helper</a></li>
+<li>StarryOS 支持内核可加载模块和 ebpf 的分支 <a href="https://github.com/Starry-OS/StarryOS/tree/kmod" target="_blank" rel="noopener">https://github.com/Starry-OS/StarryOS/tree/kmod</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/12/15/2025%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5%E4%B8%80%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E5%8F%B2%E5%96%86%E5%85%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/12/15/2025%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5%E4%B8%80%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E5%8F%B2%E5%96%86%E5%85%83/" class="post-title-link" itemprop="url">2025秋冬季开源操作系统训练营一二阶段总结-史喆元</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-12-15 16:20:37" itemprop="dateCreated datePublished" datetime="2025-12-15T16:20:37+00:00">2025-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/report/" itemprop="url" rel="index"><span itemprop="name">report</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是我第二次报名这个训练营但是相当于是第一次参加了,因为第一次报名是在2024年的秋冬季,那时候我刚大一刚刚接触到计算机,感觉很有意思就报名了但是那时候连使用Github对我来说都极其困难且刚进入大学没有适应繁多的课程,<br>我便决定先放弃,潜修一年有了些许微波的基础后再来试一试。我总是喜欢去了解一些东西的底层,所以我对操作系统算是有一总执念吧,让我再次来到这里。但由于本人比较愚笨,学习速度极慢,再加上早八到晚十的课程,所以进度相较于其他优秀学院慢了许多,但贵在坚持嘛……</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2025/12/15/2025%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5%E4%B8%80%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E5%8F%B2%E5%96%86%E5%85%83/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/16/2025%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E9%83%91%E6%B3%89%E5%9F%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/16/2025%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93-%E9%83%91%E6%B3%89%E5%9F%8E/" class="post-title-link" itemprop="url">2025秋冬季开源操作系统训练营-第三阶段总结-郑泉城</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-16 19:26:30" itemprop="dateCreated datePublished" datetime="2025-11-16T19:26:30+00:00">2025-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="lab1-print-with-color"><a href="#lab1-print-with-color" class="headerlink" title="lab1: print_with_color"></a>lab1: print_with_color</h2><ul>
+<li>本实验比较较为简单, 修改 <code>arceos/exercises/print_with_color/src/main.rs</code> 文件, 为 <code>println</code> 添加 ANSI 转义码即可. ANSI 转义码用于在终端中控制光标位置、文本颜色、文本样式等, 其以 ESC (Escape) 字符开头.</li>
+<li>初次在 Rust 中使用 <code>\033[34m[WithColor]: Hello, Arceos!\033[0m</code> 形式的 ANSI 转义码, 发现其不奏效; 但是在 C/C++ 中却是正常. 查阅资料后得知, <code>\033</code> 是 C 语言的传统写法, 在 C/C++ 中使用较多. 在 Rust 中, 应该使用 <code>\x1b</code>, 即 <code>\x1b[34m[WithColor]: Hello, Arceos!\x1b[0m</code>. 本是上来说, <code>\033</code> 和 <code>\x1b</code> 是同一内容的不同表示.</li>
+</ul>
+<h2 id="lab2-support-hashmap"><a href="#lab2-support-hashmap" class="headerlink" title="lab2: support_hashmap"></a>lab2: support_hashmap</h2><ul>
+<li>本实验直接使用 <code>hashbrown</code> 来支持 <code>hashmap</code>. 在 <code>arceos/ulib/axstd/Cargo.toml</code> 中添加 <code>hashbrown</code> 依赖, 在 <code>axstd</code> 中添加 <code>collections</code> 模块, 并在 <code>arceos/ulib/axstd/Cargo.toml</code> 中声明 <code>pub mod collections;</code>. 在 <code>collections</code> 模块中, 使用 <code>pub use alloc::collections::*;</code>, 将 <code>alloc::collections</code> 的内容(比如 <code>BTreeMap</code>)导入当前的模块, 使用 <code>pub use hashbrown::*;</code> 将第三方库的 <code>HashMap</code> 等导入当前模块, 此时可以通过 <code>axstd::collections</code> 使用 <code>HashMap</code>(<code>hashbrown</code> 提供)、<code>BTreeMap</code>(<code>alloc::collections</code> 提供).</li>
+<li>还有一点要注意, 应该在启用 <code>alloc</code> feature 时才会声明并挂载 <code>collections</code> (#<code>[cfg(feature = &quot;alloc&quot;)]</code>), 若不加以控制, <code>print_with_color</code> 则会出现报错. 原因在于, 若 <code>collections</code> 的编译不被 <code>alloc</code> feature 控制, 其中的 <code>BTreeMap</code> 等会依赖全局内存分配器, 但是因没有启用 <code>alloc</code> feature, 故而找不到全局内存分配器. 应该启用 <code>alloc</code> feature 时才会编译 <code>collections</code>.</li>
+</ul>
+<h2 id="lab3-alt-alloc"><a href="#lab3-alt-alloc" class="headerlink" title="lab3: alt_alloc"></a>lab3: alt_alloc</h2><ul>
+<li>此实验是实现简单的内存分配器, 在 <code>arceos/modules/alt_axalloc/src/lib.rs</code> 中具体实现.</li>
+<li><code>arceos/exercises/alt_alloc/Cargo.toml</code> 声明依赖 <code>axstd</code>: <code>workspace = true</code> 表明 <code>axstd</code> 是工作区成员; <code>features = [&quot;alt_alloc&quot;]</code> 使 <code>axstd</code> 开启 <code>alt_alloc</code> 特性. 当 <code>axstd</code> 的 <code>alt_alloc</code> 特性被启用时, 其会继续将此传递下去, 还会根据 <code>[features]</code> 的 <code>alt_alloc = [&quot;arceos_api/alt_alloc&quot;, &quot;axfeat/alt_alloc&quot;]</code> 启用 <code>arceos_api</code> 中的 <code>alt_alloc</code> 特性和 <code>axfeat</code> 中的 <code>alt_alloc</code> 特性.</li>
+</ul>
+<h2 id="lab4-ramfs-rename"><a href="#lab4-ramfs-rename" class="headerlink" title="lab4: ramfs_rename"></a>lab4: ramfs_rename</h2><ul>
+<li>实验要求在 <code>arceos/axfs_ramfs</code> 中实现 <code>rename</code> 操作, 但 arceos 原本依赖远程仓库的版本, 故需要调整.</li>
+<li>可以采用 patch 方式让工程临时使用 <code>arceos/axfs_ramfs</code> 的本地组件仓库. 为方便起见, 直接在 <code>arceos/exercises/ramfs_rename/Cargo.toml</code> 中将 <code>axfs_ramfs = { version = &quot;0.1&quot;, optional = true }</code> 中的 <code>version = &quot;0.1&quot;</code> 替换为 <code>workspace = true</code>, 多次运行发现还是提示 <strong>Operation not supported</strong>. 然后对代码进行详细分析, 发现应用 <code>ramfs_rename</code> 会依赖 <code>axfs</code>(间接) 和 <code>axfs_ramfs</code>, <code>axfs</code> 还会依赖 <code>axfs_ramfs</code>, 此时 <code>ramfs_rename</code> 依赖的 <code>axfs_ramfs</code> 与 <code>axfs</code> 依赖的不同. 故还需将修改 <code>arceos/modules/axfs/Cargo.toml</code>, 替换 <code>version = &quot;0.1&quot;</code> 为 <code>workspace = true</code>.</li>
+<li>具体实现 rename 功能, 只需修改 <code>arceos/axfs_ramfs/src/dir.rs</code>. 阅读测试用例后发现, 文件重命名只在同一个目录下操作, 故在具体实现中只考虑此情况, 并未做特殊处理.</li>
+</ul>
+<h2 id="lab5-sys-map"><a href="#lab5-sys-map" class="headerlink" title="lab5: sys_map"></a>lab5: sys_map</h2><ul>
+<li>初次运行 <code>sys_map</code> 时, 发现运行结果与课件中展示的内容有很大出入, 课件显示 <code>not implement</code>, 而本地运行则会显示 <code>Cannot load app!</code>. 经排查, 发现未设置 <code>musl-libc</code>, 导致无法编译出 <code>mapfile</code> 可执行文件.</li>
+<li>实现 <code>sys_map</code> 时针对测试用例做了简化处理, 未考虑复杂的情况. 实现 <code>sys_mmap</code> 系统调用主要有 5 个步骤: 获取当前进程的地址空间, 并在此查找空闲内存区域, 再准备参数执行内存映射, 再读取文件内容到缓冲区 buf 并将其写入映射的内存区域, 最后返回映射起始位置. 实现过程中, 务必查找空闲的内存区域再映射, 否则会出现 <code>Mapping error: AlreadyExists</code>.</li>
+</ul>
+<h2 id="lab6-simple-hv"><a href="#lab6-simple-hv" class="headerlink" title="lab6: simple_hv"></a>lab6: simple_hv</h2><ul>
+<li>运行此实验代码, 发现QEMU会卡死. 经过仔细排查, 是由于 <code>payload</code> 构建失败导致的. 在外层 Makefile 中定义的 <code>RUSTFLAGS</code> 会被默认传递给 <code>make -C ./payload</code> 递归调用, 这会干扰编译 <code>payload</code> (尤其是 skernel). 故在 <code>payload</code> 的 <code>Makefile</code> 中添加 <code>unexport RUSTFLAGS</code> 来避免 RUSTFLAGS 变量的传播.</li>
+<li>正常运行后, 根据 <code>panic</code> 指示修改实现, 使测例通过即可. 在异常处理分支中, panic 改为 <code>ax_println</code>, 还要调整客户机的 <code>spec</code>, 即 <code>ctx.guest_regs.sepc += 4;</code>. 注意, 还要设置 <code>A0</code> 寄存器的值为 <code>0x6688</code>, <code>A1</code> 寄存器的值为 <code>0x1234</code>.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/16/2025fall-stage3-summary-ljy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/16/2025fall-stage3-summary-ljy/" class="post-title-link" itemprop="url">2025fall-stage3-summary-ljy</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-16 17:54:25" itemprop="dateCreated datePublished" datetime="2025-11-16T17:54:25+00:00">2025-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>对 rcore 早有耳闻，曾报名了 23 年秋冬的训练营，但是当前初学 rust、初学 riscv 等缺少了一种毅力，25 年秋冬重新报名参加，有所学、有所获。</p>
+<p>虽然我是虚拟化方向的研究生，但是对于操作系统中的很多概念等停留在理论阶段，尤其在接触到了 rcore 之后，发现本科学的操作系统只是浮在表面的那一层，如今接触 rcore，做了一些实验，进一步加深了对操作系统的敬仰。</p>
+<p>虽然走到了这里，但是对于 rcore 的很多非实验的部分的理解还不够，还需要好好地梳理，这里对 stage-3 arceos 实验进行总结。</p>
+</blockquote>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>实验涉及 unikernel、宏内核、hypervisor，但是明显感觉到 stage3 实验更多得是对组件化操作系统的上手。</p>
+<p>其中很多实验并不像 rcore 中的那样复杂，比如 print_color、simple_hv，可能一点点代码就能通过测例，更重要的是理解其组件化的思想，可以快速构建异构内核的能力，unikernel、宏内核、hypervisor，把他们的共同点抽离出来，封装成一个个组件，可以实现快速的内核定制。</p>
+<p>下面说一下遇到的一些问题：</p>
+<h4 id="hashmap"><a href="#hashmap" class="headerlink" title="hashmap"></a>hashmap</h4><p>起初，我通过 hashbrown 引入第三方的实现，发现并未涉及视频中提到的随机数，通过查找资料以及翻阅 std 下的 hash_map 实现。最终决定使用 hashbrown 下的 HashMap::with_hasher，并选择 foldhash 下的 FixedState::with_seed 提供一个哈希计算，其中 seed 通过 axhal 下的 random 生成。</p>
+<h4 id="ramfs-rename"><a href="#ramfs-rename" class="headerlink" title="ramfs_rename"></a>ramfs_rename</h4><p>最开始，发现怎么改动都不生效，arceos 的实验使用了 workspace，这个在之前我从未接触，最终发现是 ramfs_rename 对应的这个内核的 Cargo.toml 文件依赖的不是 workspace 中的 axfs_ramfs 导致。<br>除此之外，还有修改 axfs 下的 Cargo.toml。</p>
+<h4 id="sys-mmap"><a href="#sys-mmap" class="headerlink" title="sys_mmap"></a>sys_mmap</h4><p>从文件中映射到内存中，分三步走，在虚拟地址空间找一个空闲虚拟页，借助 uspace.find_free_area，借助 uspace.map_alloc 进行预填充的分配，即完成虚实映射，然后将文件读到改页。<br>如果使用刚刚分配的虚拟地址可以读，但是会出现异常，比如权限不足，需要转到内核虚拟地址进行读写，这里通过 phys_to_virt 将物理地址转到内核到虚拟地址，随后通过 sys_read 这个 api 完成文件的读取。</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>自我感觉对于 rcore 的掌握还不到家，目前仅仅是通过了测例而已。</p>
+<p>rcore 的文档和代码常读常新，能加深操作系统的理解。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/16/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/16/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">学习心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-16 13:50:39" itemprop="dateCreated datePublished" datetime="2025-11-16T13:50:39+00:00">2025-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>听闻rCore是基于Rust实现的操作系统内核，我对此产生了兴趣并报名参加了训练营。经过三个阶段的系统学习，作为Rust语言的初学者，我掌握了Rust的基础语法特性，并深入复习了操作系统的相关概念。本文将记录我在完成第三阶段ArceOS的学习过程中,对几个较为感兴趣部分的实现理解与思考。</p>
+<h2 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h2><p>ArceOS的虚拟文件系统(VFS)中<code>rename</code>功能的设计充分体现了职责分离和安全性的设计理念。该部分的核心思路是VFS层通过最长匹配原则 (<code>find_fs_for_path</code>) 确定路径所属的文件系统，并妥善处理跨文件系统重命名和挂载点重命名等边界情况。</p>
+<p>VFS在此充当调度者的角色，负责将请求转发给正确的底层文件系统。而底层文件系统 (如ramfs) 则负责执行实际的重命名操作，通过Rust的读写锁机制确保重命名操作以及覆盖情况的原子性和并发安全性，这种分层设计不仅职责清晰,而且使VFS具有良好的灵活性和可扩展性。</p>
+<h2 id="mmap"><a href="#mmap" class="headerlink" title="mmap"></a>mmap</h2><p><code>sys_mmap</code>实现了Linux风格的内存映射机制，其核心流程围绕地址空间管理和文件/匿名映射展开，首先检查映射长度是否为零，并将长度强制对齐到4KB页大小。若指定了addr参数则要求其必须是页对齐的。</p>
+<p>当设置<code>MAP_FIXED</code>标志时,系统必须使用指定的固定地址，并校验该地址是否在合法的地址空间范围内。否则系统会在进程的地址空间中查找一块足够大的空闲区域 (通过<code>find_free_area</code>函数) 作为映射的起始虚拟地址。</p>
+<p>对于匿名映射<code>MAP_ANONYMOUS</code>，系统仅在地址空间中分配并映射物理页,不涉及文件操作。对于文件映射，系统先执行<code>map_alloc</code>建立映射关系,然后通过<code>sys_lseek</code>调整文件偏移量，接着同步读取部分数据到缓冲区，最后通过<code>aspace.write</code>将数据写入新映射的虚拟地址，完成初始数据的填充。</p>
+<p>整个设计的重点在于利用地址空间<code>aspace</code>抽象实现统一的虚拟内存管理和权限控制，这让我深刻理解了操作系统中抽象层的重要性。</p>
+<h2 id="Hypervisor"><a href="#Hypervisor" class="headerlink" title="Hypervisor"></a>Hypervisor</h2><p>Hypervisor位于操作系统和物理机之间，将CPU、内存、磁盘、网卡等硬件资源切分成独立份额，再封装成多台虚拟计算机，每个虚拟机运行各自的操作系统和应用程序，彼此之间互不干扰。</p>
+<p>在ArceOS的<code>simple_hv</code>练习中，需要实现了一个最小化的RISC-V虚拟机监视器，核心逻辑集中在<code>vmexit_handler</code>函数中，当客户机触发异常或SBI调用时，CPU自动陷入该函数，由宿主机快速处理并模拟所需功能。</p>
+<p><code>VirtualSupervisorEnvCall</code>是SBI调用的集中分发点，处理客户机OS的各种请求，包括<code>printf</code>输出、关机请求、时钟设置和SBI扩展探测等。其中<code>putchar</code>实时回显到宿主终端、<code>SetTimer</code>重写stimecmp寄存器，而<code>SRST_SHUTDOWN</code>在打印”Shutdown vm normally!”后停机。</p>
+<p>整套代码虽然不足百行,却完整串联了异常捕获→寄存器改写→SBI模拟→时钟注入→正常关机的hypervisor核心流程，为学习更深层次的多核虚拟化、扩展页表(EPT)、IOMMU等高级虚拟化技术打下了基础。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/15/ArceOS-test-report-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/15/ArceOS-test-report-blog/" class="post-title-link" itemprop="url">ArceOS_test_report_blog-Shl1015CS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-15 17:23:23" itemprop="dateCreated datePublished" datetime="2025-11-15T17:23:23+00:00">2025-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这篇博文记录了我在 LearningOS ArceOS 训练仓库中的调试历程：从基础的 <code>ramfs_rename</code>、<code>alt_alloc</code> 练习，到让 CI 里的 <code>simple_hv</code> 能稳定加载 <code>skernel2</code>，再到阶段性验收脚本 <code>verify_lab1.sh</code>。过程中频繁与 GitHub Actions 环境差异、虚拟机退出机制等问题斗智斗勇，现总结如下。</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li><strong>仓库与分支</strong>：LearningOS/2025a-arceos-Shl1015CS 的 <code>main</code>（练习）与 <code>lab1</code>（挑战）</li>
+<li><strong>宿主机</strong>：Ubuntu 22.04，rustup stable toolchain</li>
+<li><strong>QEMU</strong>：<code>qemu-system-riscv64</code></li>
+</ul>
+<h2 id="任务拆解与进展"><a href="#任务拆解与进展" class="headerlink" title="任务拆解与进展"></a>任务拆解与进展</h2><h3 id="1-print-with-color：确认基础输出能力"><a href="#1-print-with-color：确认基础输出能力" class="headerlink" title="1. print_with_color：确认基础输出能力"></a>1. <code>print_with_color</code>：确认基础输出能力</h3><ul>
+<li>目标：让 <code>print_with_color</code> 示例在串口中输出带 ANSI 颜色的 “Hello, Arceos!”。</li>
+<li>方法：直接在 <code>main.rs</code> 中使用 <code>println!(&quot;\x1b[1;31m...&quot;)</code>，并确保 <code>axstd</code> 打印宏可用。</li>
+<li>测试：运行 <code>./scripts/test-print.sh</code>，脚本通过检测转义序列与纯文本，判断是否既有颜色又有正确文案。</li>
+</ul>
+<h3 id="2-support-hashmap：验证-alloc-集合"><a href="#2-support-hashmap：验证-alloc-集合" class="headerlink" title="2. support_hashmap：验证 alloc+集合"></a>2. <code>support_hashmap</code>：验证 alloc+集合</h3><ul>
+<li>目标：在内核环境下跑 <code>support_hashmap</code> 练习，完成 <code>Memory tests run OK!</code>。</li>
+<li>关键点：提供稳定的堆内存来源，让 <code>alloc::collections::HashMap</code> 能频繁插入/删除。</li>
+<li>测试：<code>./scripts/test-support_hashmap.sh</code> 构建磁盘镜像、运行练习并抓取最后一行输出，确保内存测试通过。</li>
+</ul>
+<h3 id="3-sys-map：实现用户态-mmap"><a href="#3-sys-map：实现用户态-mmap" class="headerlink" title="3. sys_map：实现用户态 mmap"></a>3. <code>sys_map</code>：实现用户态 <code>mmap</code></h3><ul>
+<li>目标：补全 <code>exercises/sys_map</code> 的系统调用接口，使用户态程序能够通过 <code>mmap</code> 映射文件，并读回 “hello, arceos!”。</li>
+<li>难点：<ul>
+<li>在内核侧为匿名/文件映射分配虚拟地址，维护 <code>VmArea</code> 元数据；</li>
+<li>当 <code>fd</code> 指向磁盘文件时，需将 payload（<code>payload/mapfile_c/mapfile</code>）写入 <code>disk.img</code> 并供客体访问；</li>
+<li>处理 <code>munmap</code> 与页对齐要求。</li>
+</ul>
+</li>
+<li>测试：<code>./scripts/test-sys_map.sh</code> 会先执行 <code>make payload &amp;&amp; ./update_disk.sh ...</code>，再以 <code>BLK=y</code> 运行练习并搜索 “Read back content: hello, arceos!”。</li>
+</ul>
+<h3 id="4-ramfs-rename：递归重命名与特殊路径"><a href="#4-ramfs-rename：递归重命名与特殊路径" class="headerlink" title="4. ramfs_rename：递归重命名与特殊路径"></a>4. <code>ramfs_rename</code>：递归重命名与特殊路径</h3><ul>
+<li><code>axfs_ramfs</code> 的 <code>DirNode::rename</code> 仅支持同级结点，需要实现跨层级、处理 <code>.</code> <code>..</code> 的逻辑。</li>
+<li>解决方案：在 <code>modules/axfs/src/root.rs</code> 中实现“复制 + 删除”策略，保证旧结点被正确删除并保留内容。</li>
+<li>同时排查 <code>impl_vfs_dir_default!</code> 宏覆盖自定义实现的问题，最后确认修改入口正确。</li>
+</ul>
+<h3 id="5-alt-alloc：早期堆分配器"><a href="#5-alt-alloc：早期堆分配器" class="headerlink" title="5. alt_alloc：早期堆分配器"></a>5. <code>alt_alloc</code>：早期堆分配器</h3><ul>
+<li>要求实现 <code>modules/alt_axalloc/src/bump_allocator.rs</code> 中的 <code>EarlyAllocator</code>。</li>
+<li>重点在于字节对齐、页分配接口实现与统计函数（<code>total_bytes/used_bytes/available_bytes</code>）。</li>
+<li>通过 <code>cargo test -p alt_axalloc</code> 与 <code>./scripts/test-alt_alloc.sh</code> 验证，确保早期分配器可用于内核初始化阶段。</li>
+</ul>
+<h3 id="6-simple-hv：CI-环境无法加载-skernel2"><a href="#6-simple-hv：CI-环境无法加载-skernel2" class="headerlink" title="6. simple_hv：CI 环境无法加载 skernel2"></a>6. <code>simple_hv</code>：CI 环境无法加载 <code>skernel2</code></h3><p>这是整个阶段最耗时的部分，核心需求：让 GitHub Actions 中的 <code>./scripts/test-simple_hv.sh</code> 通过。</p>
+<h3 id="7-verify-lab1-sh：阶段验收"><a href="#7-verify-lab1-sh：阶段验收" class="headerlink" title="7. verify_lab1.sh：阶段验收"></a>7. <code>verify_lab1.sh</code>：阶段验收</h3><ul>
+<li>命令：<code>cd arceos &amp;&amp; ./verify_lab1.sh | tee tmpa.txt</code></li>
+<li>该脚本会重新生成镜像、构建 <code>labs/lab1</code>，并在 QEMU 中运行效验。</li>
+<li>当前阻塞点：<code>lab_allocator</code> 中的 <code>LabByteAllocator</code> 尚未实现，导致 <code>panicked at labs/lab_allocator/src/lib.rs:20:9</code>。后续计划完善 bump allocator 以便完成 lab1。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/14/OScamp-blog-Iscreamx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/14/OScamp-blog-Iscreamx/" class="post-title-link" itemprop="url">OScamp-blog-Iscreamx</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-14 16:17:26" itemprop="dateCreated datePublished" datetime="2025-11-14T16:17:26+00:00">2025-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p>第一次参加操作系统的训练营，确实学到了很多之前在书本上没有学到的知识，也锻炼了自己的动手能力。</p>
+<h2 id="rustlings"><a href="#rustlings" class="headerlink" title="rustlings"></a>rustlings</h2><p>主要是语法学习，因为之前学过rust的基础语法，所以这次简单复习一遍就很容易通过了，不过增加的数据结构和算法题还是有一定难度，需要多多debug。</p>
+<h2 id="rcore"><a href="#rcore" class="headerlink" title="rcore"></a>rcore</h2><p>rcore其实和本科的教材讲的操作系统其实是一回事，只是用rust实现。所以看文档就感觉很亲切，练习题也比较简单。</p>
+<h2 id="arceos"><a href="#arceos" class="headerlink" title="arceos"></a>arceos</h2><p>由于之前没有接触过组件化操作系统，第一次看到还是有许多不理解的地方。不过教学视频里面的图示都很清晰，对照着老师的教学也很容易听懂。练习题主要是要多使用gdb，搞清楚各个功能的函数调用链，功能本身的实现倒不是很复杂。</p>
+<h2 id="挑战题目"><a href="#挑战题目" class="headerlink" title="挑战题目"></a>挑战题目</h2><p>目前刚好处在论文开题的阶段，由于时间原因还没来得及做，希望能在截至日前抽出时间尝试一下。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/11/2025%E7%A7%8B%E5%86%AC%E5%AD%A3OS%E8%AE%AD%E7%BB%83%E8%90%A5%E4%BA%8C%E4%B8%89%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E2%80%94%E2%80%94%E4%BB%A3%E4%BF%8A%E5%8B%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/11/2025%E7%A7%8B%E5%86%AC%E5%AD%A3OS%E8%AE%AD%E7%BB%83%E8%90%A5%E4%BA%8C%E4%B8%89%E9%98%B6%E6%AE%B5%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E2%80%94%E2%80%94%E4%BB%A3%E4%BF%8A%E5%8B%83/" class="post-title-link" itemprop="url">2025秋冬季OS训练营二三阶段学习心得——代俊勃</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-11 21:49:00" itemprop="dateCreated datePublished" datetime="2025-11-11T21:49:00+00:00">2025-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="学习心得"><a href="#学习心得" class="headerlink" title="学习心得"></a>学习心得</h2><h2 id="二阶段-rcore"><a href="#二阶段-rcore" class="headerlink" title="二阶段 rcore"></a>二阶段 rcore</h2><p>再一次参加了OS训练营，从第一次的跌跌撞撞到第二次的懵懵懂懂再到第三次的游刃有余，操作系统虽然很难，但也正是因为困难才有意思。</p>
+<p>整个内核的调用关系在心里更清晰了，在实现需求的同时，也力求代码的整洁和可读性。</p>
+<ol>
+<li>ch3 user通过syscall调用内核，本质上就是对目标的物理地址进行赋值，把不安全的操作放到内核来做</li>
+<li>ch4 加入了MMU，user拿到的地址就不是物理地址了，需要进行一些转换。在分配和释放内存的时候也就是修改页表的一个过程，和修改数据库没什么区别。</li>
+<li>ch5 实现了简单的进程调度算法，从FIFO变成了stride 调度算法，也把fork 和 exec拼一起形成了spawn。</li>
+<li>ch6 对inode进行操作，实际上各种方法都被包装的很好了，调用关系也很清晰。</li>
+<li>ch8 这里弄清楚创建线程的位置和那些变量的增减时机一切都迎刃而解。</li>
+</ol>
+<h2 id="三阶段arceos"><a href="#三阶段arceos" class="headerlink" title="三阶段arceos"></a>三阶段arceos</h2><p>代码量总体更少，确定了实现范围后很快就可以完成。</p>
+<p>在实验上</p>
+<ol>
+<li>[print_with_color] 可以很好的熟悉调用关系</li>
+<li>[alt_alloc_bump] 一个bump内存分配算法 如果有时间可以尝试一下挑战题</li>
+<li>[ramfs_rename] 相比于二阶段这里的node抽象程度更高，老节点挂在新路径上即可实现</li>
+<li>[hashmap] 实现collections中的hashmap的替换，可以自己新建一个collection，在里面实现hashmap</li>
+<li>[sys_map] 三阶段代码量最大的一道题，不过很多方法和调用都在main中用过了，先拿到用户栈的地址，在里面找一块内存，之后把程序读入缓冲区并写到目标位置</li>
+<li>[simple_hv] 处理一下未处理的异常，之后执行下一条命令</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>操作系统是一个很神奇的东西，每一次学习都有新的收获，在里面能找到很多数据库，web开发共通的思想。操作系统导论也是一本很好的书，虽然我还没看完内存部分，但是通过结合实践，理解的更深刻了。</p>
+<p>学习操作系统就像爬山，每一步都需要扎实，每一步都很困难，但每一步都离顶峰更近，踏一步就有一步的收获。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/10/os-camp-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/10/os-camp-blog/" class="post-title-link" itemprop="url">os-camp-blog</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-10 16:04:18" itemprop="dateCreated datePublished" datetime="2025-11-10T16:04:18+00:00">2025-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="rust编程语言"><a href="#rust编程语言" class="headerlink" title="rust编程语言"></a>rust编程语言</h3><p>第一阶段由于原先有C/C++的编程基础，基础语法上手还是比较快的，但在rust语言在内存管理方面的特性还是需要适应一段时间。但学习rust的经历中，也是能学到很多，能看到很多其他编程语言的影子，但也有rust自身的特性，如内存管理方面。多方面多语言融会贯通，收获颇丰。</p>
+<h2 id="rcore"><a href="#rcore" class="headerlink" title="rcore"></a>rcore</h2><p>由于在操作系统方面是0基础，在进入第二阶段的学习之前，我先去学习了Mit的xv6课程，有了这方面的基础，后续的学习会简单很多。</p>
+<p>在实验上第一次尝试用rust写内核，体验挺奇妙的，在内存管理上给人与C语言完全不同的体验。</p>
+<ol>
+<li>ch3 熟悉系统调用</li>
+<li>ch4 内存映射出问题，调试比较麻烦</li>
+<li>ch5 熟悉进程调度算法</li>
+<li>ch6 挺麻烦的要自己实现一些接口</li>
+<li>ch8 死锁检测，耗费时间比较多，走了一些弯路，好在最后调试发现问题所在</li>
+</ol>
+<h2 id="arceos"><a href="#arceos" class="headerlink" title="arceos"></a>arceos</h2><p>作业难度比上一阶段简单一些，但模块化的设计思路很巧妙，体验比较新奇。</p>
+<p>在实验上</p>
+<ol>
+<li>[print_with_color] 仿照原有代码的color包装即可完成</li>
+<li>[alt_alloc_bump] 内存分配算法 这里的测试文件是不很全部</li>
+<li>[ramfs_rename] 动手实现一个处理函数</li>
+<li>[sys_map] 花费的时间比较多，后续调试才发现是访问权限的问题</li>
+<li>[simple_hv] 解析指令，修改上下文即可</li>
+</ol>
+<h3 id="综上"><a href="#综上" class="headerlink" title="综上"></a>综上</h3><p>总的来说，训练营的学习收获还是挺多的，也尝试了用rust编写内核，这是我从未涉猎的领域，希望在后续的学习中能学的更多，后续希望能写出自己的内核，尝试在操作系统中加入自己的想法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://rcore-os.github.io/blog/2025/11/09/%E9%98%B6%E6%AE%B53%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-%E7%9F%B3%E5%AE%B6%E8%AA%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="rcore-os Group">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rcore-os Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2025/11/09/%E9%98%B6%E6%AE%B53%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-%E7%9F%B3%E5%AE%B6%E8%AA%89/" class="post-title-link" itemprop="url">阶段3学习总结-石家誉</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-11-09 20:28:52" itemprop="dateCreated datePublished" datetime="2025-11-09T20:28:52+00:00">2025-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-04-28 15:22:23" itemprop="dateModified" datetime="2026-04-28T15:22:23+00:00">2026-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/2025-%E7%A7%8B%E5%86%AC%E5%AD%A3%E5%BC%80%E6%BA%90%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%AD%E7%BB%83%E8%90%A5/" itemprop="url" rel="index"><span itemprop="name">2025 秋冬季开源操作系统训练营</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><h3 id="UniKernel"><a href="#UniKernel" class="headerlink" title="UniKernel"></a>UniKernel</h3><h4 id="实验1：print-with-color"><a href="#实验1：print-with-color" class="headerlink" title="实验1：print_with_color"></a>实验1：print_with_color</h4><p>在该实验中，我原来是在<code>__print_impl</code>中进行实现（因为不懂宏），后来在实验二中输出pass后测评脚本没找到<code>support_hashmap pass</code>，问ai是因为我的实现在行末有个换行导致没识别上，最后还是选择修改格式化输出宏。</p>
+<h4 id="实验2：-support-hashmap"><a href="#实验2：-support-hashmap" class="headerlink" title="实验2： support_hashmap"></a>实验2： support_hashmap</h4><p>在<code>axstd</code>中实现了<code>collections</code>并添加了<code>HashMap</code>。第一次的时候没有将原<code>collections</code>中的数据结构导入到新的<code>collections</code>中，卡了一小段时间。<br>最开始是使用递归形式写的，没有注意数据量，运行一半卡死了，最后修改成循环写法，修改后才顺利通过。</p>
+<h4 id="实验3：alt-alloc"><a href="#实验3：alt-alloc" class="headerlink" title="实验3：alt_alloc"></a>实验3：alt_alloc</h4><p>自感难度不大。</p>
+<h4 id="实验4：ramfs-rename"><a href="#实验4：ramfs-rename" class="headerlink" title="实验4：ramfs_rename"></a>实验4：ramfs_rename</h4><p>在修改dependencies卡了半天，一直没有调用自己实际写的（对rust的依赖之类的还是不太熟悉，经常不知道该怎么导入）。最开始把问题想太简单了，后续修改才真正pass。</p>
+<h3 id="Monolithic-Kernel"><a href="#Monolithic-Kernel" class="headerlink" title="Monolithic Kernel"></a>Monolithic Kernel</h3><h4 id="实验5：sys-mmap"><a href="#实验5：sys-mmap" class="headerlink" title="实验5：sys_mmap"></a>实验5：sys_mmap</h4><p>最开始直接使用<code>sys_read</code>将内容写入用户内存空间的地址，没想到内核态没有实现处理这种缺页问题，看着<code>Page Fault</code>一脸懵逼，排查半天发现在<code>read</code>这一行，后续用ai排查才知道是这个原因，最后先写入缓冲区，再将缓冲区写入用户地址空间。</p>
+<h4 id="page-fault"><a href="#page-fault" class="headerlink" title="page_fault"></a>page_fault</h4><p>自己写的时候开了个头就没想法了。（可能是因为答案就在边上）</p>
+<h3 id="Hypervisor"><a href="#Hypervisor" class="headerlink" title="Hypervisor"></a>Hypervisor</h3><h4 id="实验6：simple-hv"><a href="#实验6：simple-hv" class="headerlink" title="实验6：simple_hv"></a>实验6：simple_hv</h4><p>本来以为会很难，看视频的时候云里雾里的，实际写起来发现还好。</p>
+<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><p>自我感觉第三阶段的任务要比第二阶段简单一些，可能是第二阶段刚开始接触kernel，加上代码量比较大，当时一个实验要卡好久，第三阶段感觉主要是底部实现已经比较完善了，所以好写一些。</p>
+<p>经过这两个阶段对kernel的学习，我感觉我在文件系统方面还是有一点云里雾里，可能是第二阶段学习的时候比较仓促，不太扎实。同时rust编程方面也不算非常熟悉，看懂没有太大的问题，但是实际上手写总是因为语法问题而有卡顿，同时在包，模块的引用，<code>cargo.toml</code>的编写修改还是不太熟悉（以前就简单学过c和cpp，不太关注这种问题）。</p>
+<p>离训练营结束还有一个多月，希望可以解决这些问题，继续学习，拿下通过学员证书，尽量争取一下优秀学员证书。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/76/">76</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rcore-os Group</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
