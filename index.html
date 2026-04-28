@@ -264,7 +264,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:18" itemprop="dateModified" datetime="2026-04-28T15:33:18+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:37" itemprop="dateModified" datetime="2026-04-28T15:46:37+00:00">2026-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,24 +293,34 @@
 </li>
 <li><p>拆分 pxe 部署脚本，并与已有 <a href="https://github.com/HoshimiP/github-runners/tree/feat/pxe-setup" target="_blank" rel="noopener">github-runners</a> 结合，使其能够在 CI 中自动触发测试</p>
 </li>
-<li><p>验证了部署流程与多组织资源锁 runner-wrapper 的适配，在 ubuntu+qemu 环境成功触发资源锁并执行完整测试<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_1.jpg" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_2.jpg" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_3.jpg" alt="alt text"></p>
+<li><p>验证了部署流程与多组织资源锁 runner-wrapper 的适配，在 ubuntu+qemu 环境成功触发资源锁并执行完整测试</p>
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_1.jpg" class="" title="alt text">
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_2.jpg" class="" title="alt text">
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86_3.jpg" class="" title="alt text">
 </li>
 <li><p>由于本地环境限制（缺少物理开发板），将已完成部分交付给柏乔森老师负责真实硬件上的验证</p>
 </li>
 </ol>
 <h2 id="starry-vdso-的完善"><a href="#starry-vdso-的完善" class="headerlink" title="starry-vdso 的完善"></a>starry-vdso 的完善</h2><ol>
 <li>将 <a href="https://github.com/HoshimiP/starry-vdso" target="_blank" rel="noopener">starry-vdso</a> 接入 starryOS 验证时间相关函数已经能够走 vdso 路径 具体验证结果见<a href="https://github.com/HoshimiP/internship-log/blob/main/notes/vdso.md" target="_blank" rel="noopener">笔记</a></li>
-<li>修改了 x86 架构 getcpu 的初始化实现 为每个 cpu 分配独立 GDT 空间 解决多核场景下 CPU ID 获取不准确的问题<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86getcpu.png" alt="alt text"></li>
-<li>实现了 loongarch64 架构的 vdso_getcpu<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/loongarchgetcpu.png" alt="alt text"></li>
+<li>修改了 x86 架构 getcpu 的初始化实现 为每个 cpu 分配独立 GDT 空间 解决多核场景下 CPU ID 获取不准确的问题<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/x86getcpu.png" class="" title="alt text"></li>
+<li>实现了 loongarch64 架构的 vdso_getcpu<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/loongarchgetcpu.png" class="" title="alt text">
+
+</li>
 </ol>
 <h2 id="基于自定义-vDSO-接口的-fast-path-设计与实现"><a href="#基于自定义-vDSO-接口的-fast-path-设计与实现" class="headerlink" title="基于自定义 vDSO 接口的 fast path 设计与实现"></a>基于自定义 vDSO 接口的 fast path 设计与实现</h2><ol>
-<li><p>使用 <a href="https://crates.io/crates/vdso_helper" target="_blank" rel="noopener">vdso-helper</a> 编译包含自定义 fast path 的 <code>.so</code> 文件，并完成在 StarryOS 中的加载与调用<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_api.png" alt="alt text"><br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_fast_path.png" alt="alt text"></p>
+<li><p>使用 <a href="https://crates.io/crates/vdso_helper" target="_blank" rel="noopener">vdso-helper</a> 编译包含自定义 fast path 的 <code>.so</code> 文件，并完成在 StarryOS 中的加载与调用</p>
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_api.png" class="" title="alt text">
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/kvdso_fast_path.png" class="" title="alt text">
 </li>
 <li><p>优化 starry-vdso 的 vvar 映射逻辑 使用户态可以正常通过 vdso基地址+偏移量 访问自定义 vdso 接口</p>
 </li>
-<li><p>在已有可加载模块 <code>modules/kebpf</code> 中增加 vdso 数据页的更新逻辑。当 eBPF 程序执行时，将结果从 map 写入 vvar，使用户态可以零系统调用读取结果，显著降低延迟<img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/fast_path.png" alt="alt text"></p>
+<li><p>在已有可加载模块 <code>modules/kebpf</code> 中增加 vdso 数据页的更新逻辑。当 eBPF 程序执行时，将结果从 map 写入 vvar，使用户态可以零系统调用读取结果，显著降低延迟</p>
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/fast_path.png" class="" title="alt text">
 </li>
-<li><p>在 <code>api/src/lib.rs</code> 处增加 vdso 数据页的更新逻辑，在 <code>register_timer_callback</code> 时同步更新 vvar 中的任务快照，确保 fast path 始终读取到最新状态<br><img src="%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/timer_callback_update.png" alt="alt text"></p>
+<li><p>在 <code>api/src/lib.rs</code> 处增加 vdso 数据页的更新逻辑，在 <code>register_timer_callback</code> 时同步更新 vvar 中的任务快照，确保 fast path 始终读取到最新状态</p>
+<img src="/blog/2026/04/27/%E8%87%AA%E5%8A%A8%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-%E4%B8%8E-starry-vdso-%E5%AE%8C%E5%96%84/timer_callback_update.png" class="" title="alt text">
+
 </li>
 </ol>
 <h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><h3 id="项目工程仓库"><a href="#项目工程仓库" class="headerlink" title="项目工程仓库"></a>项目工程仓库</h3><ul>
@@ -377,7 +387,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -458,7 +468,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -547,7 +557,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -624,7 +634,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:18" itemprop="dateModified" datetime="2026-04-28T15:33:18+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -699,7 +709,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -805,7 +815,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -875,7 +885,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:17" itemprop="dateModified" datetime="2026-04-28T15:33:17+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -960,7 +970,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:18" itemprop="dateModified" datetime="2026-04-28T15:33:18+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:36" itemprop="dateModified" datetime="2026-04-28T15:46:36+00:00">2026-04-28</time>
               </span>
 
           
@@ -1044,7 +1054,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-04-28 15:33:18" itemprop="dateModified" datetime="2026-04-28T15:33:18+00:00">2026-04-28</time>
+                <time title="Modified: 2026-04-28 15:46:37" itemprop="dateModified" datetime="2026-04-28T15:46:37+00:00">2026-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
